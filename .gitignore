@@ -3,6 +3,11 @@
 /app/logs/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep
+.env
+.env.dev
+.env.test
+/.env.local.php
+/.env.*.local
 
 # Email spool folder
 /app/spool/*
