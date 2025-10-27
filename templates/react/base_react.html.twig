@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Brain zap</title>
+    {% for cssFile in vite_asset('main.tsx', 'css') %}
+        <link rel="stylesheet" href="{{ cssFile }}">
+    {% endfor %}
+</head>
+<body>
+<div id="root"></div>
+<script type="module" src="{{ vite_asset('main.tsx', 'js') }}"></script>
+</body>
+</html>

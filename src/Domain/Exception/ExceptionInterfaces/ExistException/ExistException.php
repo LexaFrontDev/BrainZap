@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Domain\Exception\ExceptionInterfaces\ExistException;
+
+
+use App\Application\Dto\ExcepDto\Action\ActionResult;
+use App\Domain\Exception\BaseException\BusinessThrowableInterface;
+
+final class ExistException extends \RuntimeException implements BusinessThrowableInterface
+{
+    public function __construct(string $message = 'Resource already exists.', int $code = 404)
+    {
+        parent::__construct($message, $code);
+    }
+
+    public function getStatusCode(): int
+    {
+        return $this->getCode();
+    }
+
+    /**
+     * @return array<string, string|string|int>
+     */
+    private function getPayload(): array
+    {
+        return [
+            'error' => 'ExistException',
+            'message' => $this->getMessage(),
+            'code' => $this->getCode(),
+        ];
+    }
+
+    public function toActionResult(): ActionResult
+    {
+        return new ActionResult(
+            status: $this->getStatusCode(),
+            json: $this->getPayload(),
+        );
+    }
+}

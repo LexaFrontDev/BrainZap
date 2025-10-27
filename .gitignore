@@ -4,8 +4,7 @@
 !app/cache/.gitkeep
 !app/logs/.gitkeep
 .env
-.env.dev
-.env.test
+.env.*
 /.env.local.php
 /.env.*.local
 
@@ -51,7 +50,7 @@
 /composer.phar
 
 # Backup entities generated with doctrine:generate:entities command
-**/Entity/*~
+src/Infrastructure/Entity/*~
 
 # Embedded web-server pid file
 /.web-server-pid
